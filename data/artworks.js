@@ -1,0 +1,800 @@
+window.RIVANI_ARTWORKS = [
+  {
+    "id": 1,
+    "title": "Thresholds in Terracotta & Umber",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Oil and cold wax on raw linen · Walnut frame",
+    "dimensions": "122 × 91 cm (48 × 36 in)",
+    "price": "₹1,00,000",
+    "description": "Terracotta, umber and warm ivory geometric abstraction structured around architectural planes.",
+    "image": "assets/images/image_1.jpg",
+    "views": [
+      "assets/images/image_1.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Seated Figure in Ultramarine & Rose",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and pigment on fine Belgian linen · Teak frame",
+    "dimensions": "132 × 102 cm (52 × 40 in)",
+    "price": "₹1,20,000",
+    "description": "Contemporary figurative portrait balancing deep ultramarine robes with quiet dusty rose and neutral stone accents.",
+    "image": "assets/images/image_2.jpg",
+    "views": [
+      "assets/images/image_2.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Monsoon Light over Smoky Foothills",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil on canvas · Dark bronze frame",
+    "dimensions": "122 × 122 cm (48 × 48 in)",
+    "price": "₹1,50,000",
+    "description": "Atmospheric mountain landscape under clearing monsoon skies with luminous breaks in the mist.",
+    "image": "assets/images/image_3.jpg",
+    "views": [
+      "assets/images/image_3.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Archway to the Terracotta Sun",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Oil and pigment on linen · Brass frame",
+    "dimensions": "160 × 120 cm (63 × 47 in)",
+    "price": "₹1,80,000",
+    "description": "Bold architectural geometry featuring an arched vermilion portal, deep indigo shadows, and golden celestial sphere.",
+    "image": "assets/images/image_4.jpg",
+    "views": [
+      "assets/images/image_4.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Indigo Pichwai in Royal Courtyard",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Natural mineral pigment & gold leaf on handspun cotton · Shadowbox frame",
+    "dimensions": "135 × 105 cm (53 × 41 in)",
+    "price": "₹1,50,000",
+    "description": "Devotional indigo Nathdwara Pichwai depicting blooming sacred lotuses and temple iconography in gold filigree.",
+    "image": "assets/images/image_5.jpg",
+    "views": [
+      "assets/images/image_5.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "The Royal Portrait: The Courtyard Prince",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and gold leaf on canvas · Hand-carved frame",
+    "dimensions": "140 × 95 cm (55 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Poised regal figure standing in contemplation with delicate gold jewelry against weathered palace masonry.",
+    "image": "assets/images/image_6.jpg",
+    "views": [
+      "assets/images/image_6.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Amber Procession at Dawn",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and mineral pigments on canvas · Teak frame",
+    "dimensions": "135 × 100 cm (53 × 39 in)",
+    "price": "₹1,20,000",
+    "description": "Dynamic equestrian and royal court entourage rendered in warm amber, crimson, and golden ochre.",
+    "image": "assets/images/image_7.jpg",
+    "views": [
+      "assets/images/image_7.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Narrative in Silk & Saffron",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and tempera on linen · Gilded frame",
+    "dimensions": "145 × 115 cm (57 × 45 in)",
+    "price": "₹1,80,000",
+    "description": "Classical narrative composition of women draped in heritage sarees gathered in morning conversation.",
+    "image": "assets/images/image_8.jpg",
+    "views": [
+      "assets/images/image_8.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Sapphire Court: Noblewoman in Gold",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Fine oil on Belgian canvas · Ornate frame",
+    "dimensions": "135 × 95 cm (53 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Courtly portrait of a noblewoman in sapphire blue brocade and gold zari embroidery.",
+    "image": "assets/images/image_9.jpg",
+    "views": [
+      "assets/images/image_9.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Pastels Village Scape — Set of 4",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Soft pastel and gouache on archival board · Floated frame",
+    "dimensions": "110 × 85 cm (43 × 33 in)",
+    "price": "₹1,00,000",
+    "description": "Ethereal coastal study in soft rose, celadon, and sand captured in a modern sea-facing salon.",
+    "image": "assets/images/image_10.jpg",
+    "views": [
+      "assets/images/image_10.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Monsoon Forest in Golden Light",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil and wax on heavy canvas · Gilt frame",
+    "dimensions": "130 × 95 cm (51 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "A dense monsoon forest canopy suffused with amber sunrays filtering through rain mist.",
+    "image": "assets/images/image_11.jpg",
+    "views": [
+      "assets/images/image_11.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Golden Konkan Seascape",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil on linen · Natural white oak frame",
+    "dimensions": "125 × 95 cm (49 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Sunset reflections along the rocky Konkan coastline with golden waves and deep ocean horizons.",
+    "image": "assets/images/image_12.jpg",
+    "views": [
+      "assets/images/image_12.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Golden Lotus in Udaipur Haveli",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Embossed 24K gold foil and natural pigment on wood panel",
+    "dimensions": "115 × 85 cm (45 × 33 in)",
+    "price": "₹1,00,000",
+    "description": "Traditional gold leaf lotus composition inspired by Mewar palace shrines and water lily gardens.",
+    "image": "assets/images/image_13.jpg",
+    "views": [
+      "assets/images/image_13.jpg"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Gilded Wildflower Meadow",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Oil, gold leaf and cold wax on canvas · Teak frame",
+    "dimensions": "120 × 90 cm (47 × 35 in)",
+    "price": "₹1,00,000",
+    "description": "Textured botanical abstract in wildflower gold, earthy charcoal, and soft ivory washes.",
+    "image": "assets/images/image_14.jpg",
+    "views": [
+      "assets/images/image_14.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Homage to Klimt",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Gold leaf, enamel and oil on canvas · Dark walnut frame",
+    "dimensions": "125 × 95 cm (49 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Intricate decorative mosaic patterns and intertwined figures inspired by the Golden Phase.",
+    "image": "assets/images/image_15.jpg",
+    "views": [
+      "assets/images/image_15.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Shrinathji Pichwai in Sea View Salon",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Natural pigments & gold on cotton · Teak frame",
+    "dimensions": "140 × 105 cm (55 × 41 in)",
+    "price": "₹1,50,000",
+    "description": "Monumental devotional Pichwai installed in an oceanfront dining gallery, framed in polished teak.",
+    "image": "assets/images/image_16.jpg",
+    "views": [
+      "assets/images/image_16.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Monumental Abstraction in South Mumbai",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Oil and cold wax on Belgian linen · Brass frame",
+    "dimensions": "155 × 125 cm (61 × 49 in)",
+    "price": "₹1,80,000",
+    "description": "A commanding abstract painting creating architectural presence in a sun-drenched residence.",
+    "image": "assets/images/image_17.jpg",
+    "views": [
+      "assets/images/image_17.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Himalayan Landscape in South Mumbai",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil on canvas · Dark bronze frame",
+    "dimensions": "135 × 100 cm (53 × 39 in)",
+    "price": "₹1,20,000",
+    "description": "Layered mountain peaks glowing under afternoon light, displayed in a high-ceilinged salon.",
+    "image": "assets/images/image_18.jpg",
+    "views": [
+      "assets/images/image_18.jpg"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Tidal Orbit on Ivory",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Mixed media and gold leaf on panel · Shadowbox frame",
+    "dimensions": "110 × 110 cm (43 × 43 in)",
+    "price": "₹1,20,000",
+    "description": "Concentric rings and cosmic tide formations executed in charcoal, gold, and mineral white.",
+    "image": "assets/images/image_19.jpg",
+    "views": [
+      "assets/images/image_19.jpg"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Bombay Watercolours on Celadon",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Watercolour & gouache on handmade Arches paper · Walnut frame",
+    "dimensions": "100 × 75 cm (39 × 30 in)",
+    "price": "₹80,000",
+    "description": "Delicate historic colonial facades and marine docks rendered in subtle washes of indigo and sepia.",
+    "image": "assets/images/image_20.jpg",
+    "views": [
+      "assets/images/image_20.jpg"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Four Landscapes on Ivory Wall",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Polyptych: 4 framed oil studies on canvas",
+    "dimensions": "140 × 100 cm overall (55 × 39 in)",
+    "price": "₹1,50,000",
+    "description": "Curated salon polyptych of four seasonal landscape studies mounted on an ivory gallery wall.",
+    "image": "assets/images/image_21.jpg",
+    "views": [
+      "assets/images/image_21.jpg"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Gilded Banyan Grove in Bandra",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Embossed brass and gold foil on dark wood · Shadowbox frame",
+    "dimensions": "120 × 90 cm (47 × 35 in)",
+    "price": "₹1,00,000",
+    "description": "Luminous brass roots and leafy canopy symbolizing sacred longevity and heritage sanctuary.",
+    "image": "assets/images/image_22.jpg",
+    "views": [
+      "assets/images/image_22.jpg"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "High-Set Pastels in Sea-Facing Penthouse",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Pastel and gouache on archival board · Gilt frame",
+    "dimensions": "115 × 85 cm (45 × 33 in)",
+    "price": "₹1,00,000",
+    "description": "Delicate figurative study capturing coastal light and breezy interior drapery.",
+    "image": "assets/images/image_23.jpg",
+    "views": [
+      "assets/images/image_23.jpg"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Gathering by the Sea at Dusk",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil on Belgian linen · Rosewood frame",
+    "dimensions": "152 × 122 cm (60 × 48 in)",
+    "price": "₹1,80,000",
+    "description": "A monumental figurative composition in cobalt blue, ochre and vermilion robes overlooking Marine Drive.",
+    "image": "assets/images/image_24.jpg",
+    "views": [
+      "assets/images/image_24.jpg"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Twilight on the Hooghly Ghats",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Luminous oil & watercolour on Arches paper · Teak frame",
+    "dimensions": "140 × 95 cm (55 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Serene evening waterscape showing riverboats navigating calm waters before temple ghats in twilight.",
+    "image": "assets/images/image_25.jpg",
+    "views": [
+      "assets/images/image_25.jpg"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Stepwell of Sienna & Indigo",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Mineral pigments and raw linen collage · Dark bronze frame",
+    "dimensions": "155 × 125 cm (61 × 49 in)",
+    "price": "₹1,80,000",
+    "description": "Rhythmic stepped geometry in burnished terracotta, cream, and deep navy inspired by traditional stepwells.",
+    "image": "assets/images/image_26.jpg",
+    "views": [
+      "assets/images/image_26.jpg"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "The Indigo Weft & Terracotta",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Textile assemblage & natural dye on linen · Shadowbox frame",
+    "dimensions": "130 × 98 cm (51 × 38 in)",
+    "price": "₹1,20,000",
+    "description": "Textured indigo patches, madder red, and raw unbleached cotton creating a tactile balance of geometry and craft.",
+    "image": "assets/images/image_27.jpg",
+    "views": [
+      "assets/images/image_27.jpg"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "The Three Sisters by the Sea Window",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Textured impasto oil on canvas · Gold leaf frame",
+    "dimensions": "145 × 115 cm (57 × 45 in)",
+    "price": "₹1,80,000",
+    "description": "Three women draped in vibrant cobalt blue, coral, and mustard silk sarees gathered in contemplation against ocean light.",
+    "image": "assets/images/image_28.jpg",
+    "views": [
+      "assets/images/image_28.jpg"
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Whispers in the Haveli Courtyard",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Fine oil on canvas · Hand-carved heritage frame",
+    "dimensions": "150 × 120 cm (59 × 47 in)",
+    "price": "₹1,80,000",
+    "description": "Two noblewomen in brocade lehengas standing within the scalloped pink sandstone arches of a royal palace.",
+    "image": "assets/images/image_29.jpg",
+    "views": [
+      "assets/images/image_29.jpg"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Spirit in Motion: The White Stallion",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Expressive palette knife oil with cobalt and cinnabar accents",
+    "dimensions": "135 × 100 cm (53 × 39 in)",
+    "price": "₹1,20,000",
+    "description": "A powerful white horse surging through energetic strokes of mineral blue, deep ochre, and vermilion.",
+    "image": "assets/images/image_30.jpg",
+    "views": [
+      "assets/images/image_30.jpg"
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Nocturne on the Riverfront",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Luminous oil on canvas · Walnut frame",
+    "dimensions": "140 × 105 cm (55 × 41 in)",
+    "price": "₹1,50,000",
+    "description": "A sweeping night view of riverbanks bathed in golden lamplight beneath dramatic moonlit clouds.",
+    "image": "assets/images/image_31.jpg",
+    "views": [
+      "assets/images/image_31.jpg"
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Abstract Temple",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Layered oil on linen · Minimalist white oak frame",
+    "dimensions": "130 × 95 cm (51 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Towering snow-dusted ridges rising through violet mist, captured in a quiet architectural salon setting.",
+    "image": "assets/images/image_32.jpg",
+    "views": [
+      "assets/images/image_32.jpg"
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Veranda into the Monsoon Grove",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil and tempera on canvas · Plantation teak frame",
+    "dimensions": "125 × 95 cm (49 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Tropical foliage glistening under fresh monsoon rain, viewed from a traditional timber-pillared veranda.",
+    "image": "assets/images/image_33.jpg",
+    "views": [
+      "assets/images/image_33.jpg"
+    ]
+  },
+  {
+    "id": 34,
+    "title": "The Bodhi Meditation",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Carved sandstone relief and distressed gold leaf · Framed",
+    "dimensions": "110 × 90 cm (43 × 35 in)",
+    "price": "₹1,00,000",
+    "description": "A meditative seated Buddha framed by lush forest canopy and temple elephant motifs with antique gilded patina.",
+    "image": "assets/images/image_34.jpg",
+    "views": [
+      "assets/images/image_34.jpg"
+    ]
+  },
+  {
+    "id": 35,
+    "title": "The Golden Harpist",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Fine oil on linen · Ornate gilded French frame",
+    "dimensions": "140 × 95 cm (55 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "A regal portrait of a lady in ivory gown with a gilded harp, installed in a neoclassical salon with marble credenza.",
+    "image": "assets/images/image_35.jpg",
+    "views": [
+      "assets/images/image_35.jpg"
+    ]
+  },
+  {
+    "id": 36,
+    "title": "The Saffron Sage",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Mineral pigments & gouache on aged paper · Teak frame",
+    "dimensions": "105 × 80 cm (41 × 31 in)",
+    "price": "₹80,000",
+    "description": "A revered contemplative ascetic figure in saffron robes, exuding stillness, discipline and timeless focus.",
+    "image": "assets/images/image_36.jpg",
+    "views": [
+      "assets/images/image_36.jpg"
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Night Song in the Garden",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and gold pigment on canvas · Dark bronze frame",
+    "dimensions": "100 × 100 cm (39 × 39 in)",
+    "price": "₹1,00,000",
+    "description": "A square format night garden composition with silhouettes, warm candlelight, and reflective emerald foliage.",
+    "image": "assets/images/image_37.jpg",
+    "views": [
+      "assets/images/image_37.jpg"
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Peaceful Sanctuary",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil on canvas · Dark walnut frame",
+    "dimensions": "135 × 100 cm (53 × 39 in)",
+    "price": "₹1,20,000",
+    "description": "A majestic courtly procession depicted in rich crimson, gold, and deep charcoal shades.",
+    "image": "assets/images/image_38.jpg",
+    "views": [
+      "assets/images/image_38.jpg"
+    ]
+  },
+  {
+    "id": 39,
+    "title": "The Royal Falconers",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and pigment on canvas · Antique frame",
+    "dimensions": "130 × 95 cm (51 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Dynamic historic narrative depicting horsemen and falconers amidst dramatic terrain.",
+    "image": "assets/images/image_39.jpg",
+    "views": [
+      "assets/images/image_39.jpg"
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Celestial Mandalas in Maroon",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Horizontal oil on Belgian canvas · Brass frame",
+    "dimensions": "145 × 90 cm (57 × 35 in)",
+    "price": "₹1,20,000",
+    "description": "A panoramic mountain range suffused with golden evening light over deep emerald valleys.",
+    "image": "assets/images/image_40.jpg",
+    "views": [
+      "assets/images/image_40.jpg"
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Blessings 1",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and gold leaf on canvas · Gilded frame",
+    "dimensions": "135 × 100 cm (53 × 39 in)",
+    "price": "₹1,20,000",
+    "description": "An opulent portrait of royalty adorned in gold filigree and deep lapis lazuli robes.",
+    "image": "assets/images/image_41.jpg",
+    "views": [
+      "assets/images/image_41.jpg"
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Lotus Sanctuary: Shrinathji Pichwai",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Natural pigment & 24K gold foil on handspun cotton",
+    "dimensions": "115 × 85 cm (45 × 33 in)",
+    "price": "₹1,00,000",
+    "description": "Traditional Nathdwara Pichwai depicting blooming lotus ponds, dancing peacocks, and sacred devotional motifs.",
+    "image": "assets/images/image_42.jpg",
+    "views": [
+      "assets/images/image_42.jpg"
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Celestial Mandalas in Maroon",
+    "artist": "Rivani Atelier",
+    "category": "Abstract",
+    "medium": "Mixed media and gold leaf on wood panel",
+    "dimensions": "100 × 100 cm (39 × 39 in)",
+    "price": "₹1,00,000",
+    "description": "Geometric concentric circles and meditative cosmic orbits in warm umber and gold.",
+    "image": "assets/images/image_43.jpg",
+    "views": [
+      "assets/images/image_43.jpg"
+    ]
+  },
+  {
+    "id": 44,
+    "title": "The Golden Harpist",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Embossed brass foil & tempera on wood · Shadowbox frame",
+    "dimensions": "120 × 90 cm (47 × 35 in)",
+    "price": "₹1,00,000",
+    "description": "Sacred banyan roots and golden foliage rendered with dimensional relief and hand-hammered texture.",
+    "image": "assets/images/image_44.jpg",
+    "views": [
+      "assets/images/image_44.jpg"
+    ]
+  },
+  {
+    "id": 45,
+    "title": "The Necklace of Time",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil on canvas · Antique gilded frame",
+    "dimensions": "135 × 100 cm (53 × 39 in)",
+    "price": "₹1,20,000",
+    "description": "Light cascading through carved sandstone jalis and arched Mughal colonnades.",
+    "image": "assets/images/image_45.jpg",
+    "views": [
+      "assets/images/image_45.jpg"
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Burger at the American Diner",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil on linen · Mahogany frame",
+    "dimensions": "125 × 95 cm (49 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "An intimate indoor study of books, manuscripts, and reflective contemplation.",
+    "image": "assets/images/image_46.jpg",
+    "views": [
+      "assets/images/image_46.jpg"
+    ]
+  },
+  {
+    "id": 47,
+    "title": "Divine Grace: The Charger",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Impasto oil on heavy canvas · Walnut frame",
+    "dimensions": "140 × 105 cm (55 × 41 in)",
+    "price": "₹1,50,000",
+    "description": "Intense, dramatic depiction of a majestic black stallion against warm umber terrain.",
+    "image": "assets/images/image_47.jpg",
+    "views": [
+      "assets/images/image_47.jpg"
+    ]
+  },
+  {
+    "id": 48,
+    "title": "Radha Krishna",
+    "artist": "Rivani Curated",
+    "category": "Sacred",
+    "medium": "Carved marble composite relief with silver foil patina",
+    "dimensions": "110 × 85 cm (43 × 33 in)",
+    "price": "₹1,00,000",
+    "description": "Serene Jain iconography and carved celestial canopy with pristine spiritual symmetry.",
+    "image": "assets/images/image_48.jpg",
+    "views": [
+      "assets/images/image_48.jpg"
+    ]
+  },
+  {
+    "id": 49,
+    "title": "Twilight over Lake Pichola",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil on canvas · Teak frame",
+    "dimensions": "135 × 95 cm (53 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "The illuminated palaces of Udaipur floating upon calm waters under indigo twilight.",
+    "image": "assets/images/image_49.jpg",
+    "views": [
+      "assets/images/image_49.jpg"
+    ]
+  },
+  {
+    "id": 50,
+    "title": "The Red Chariot of Surya: Abstract",
+    "artist": "Rivani Atelier",
+    "category": "Sacred",
+    "medium": "Gold foil, ink and tempera on canvas · Gilded frame",
+    "dimensions": "100 × 100 cm (39 × 39 in)",
+    "price": "₹1,00,000",
+    "description": "Radiant cosmic rays and sun chariot symbolism in gold, vermilion, and deep ochre.",
+    "image": "assets/images/image_50.jpg",
+    "views": [
+      "assets/images/image_50.jpg"
+    ]
+  },
+  {
+    "id": 51,
+    "title": "The Royal Fort of Amber: Abstract",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil on canvas · Antique gold leaf frame",
+    "dimensions": "140 × 100 cm (55 × 39 in)",
+    "price": "₹1,50,000",
+    "description": "Ceremonial elephant adorned in velvet and gilded howdah before fort battlements.",
+    "image": "assets/images/image_51.jpg",
+    "views": [
+      "assets/images/image_51.jpg"
+    ]
+  },
+  {
+    "id": 52,
+    "title": "Blessings 1",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil on canvas · Dark timber frame",
+    "dimensions": "130 × 95 cm (51 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Rolling green hills and tea plantation terraces veiled in gentle mountain fog.",
+    "image": "assets/images/image_52.jpg",
+    "views": [
+      "assets/images/image_52.jpg"
+    ]
+  },
+  {
+    "id": 53,
+    "title": "Veduta: The Como Villa & Balcony",
+    "artist": "Rivani Curated",
+    "category": "Landscape",
+    "medium": "Fine oil on linen · Classical gilt frame",
+    "dimensions": "140 × 100 cm (55 × 39 in)",
+    "price": "₹1,50,000",
+    "description": "An Italianate lake vista with stone balustrades, blossoming bougainvillea, and alpine waters.",
+    "image": "assets/images/image_53.jpg",
+    "views": [
+      "assets/images/image_53.jpg"
+    ]
+  },
+  {
+    "id": 54,
+    "title": "Study in the Library: Homage to Vermeer",
+    "artist": "Rivani Curated",
+    "category": "Figurative",
+    "medium": "Fine oil on panel · Dark ebonized Dutch frame",
+    "dimensions": "90 × 75 cm (35 × 30 in)",
+    "price": "₹80,000",
+    "description": "An exquisite Dutch Master-inspired study of interior light falling upon a reader in a private book collection.",
+    "image": "assets/images/image_54.jpg",
+    "views": [
+      "assets/images/image_54.jpg"
+    ]
+  },
+  {
+    "id": 55,
+    "title": "Abstract Cityscape",
+    "artist": "Rivani Atelier",
+    "category": "Sacred",
+    "medium": "Mineral pigments & embossed gold leaf on canvas · Teak frame",
+    "dimensions": "125 × 95 cm (49 × 37 in)",
+    "price": "₹1,20,000",
+    "description": "Sacred peacocks roosting in flowering kadamba trees with delicate miniature court detailing.",
+    "image": "assets/images/image_55.jpg",
+    "views": [
+      "assets/images/image_55.jpg"
+    ]
+  },
+  {
+    "id": 56,
+    "title": "Morning Mist at the Garden",
+    "artist": "Rivani Atelier",
+    "category": "Figurative",
+    "medium": "Oil and tempera on canvas · Antique frame",
+    "dimensions": "135 × 100 cm (53 × 39 in)",
+    "price": "₹1,20,000",
+    "description": "A musician in flow playing a sitar in a sunlit music room with classical columns.",
+    "image": "assets/images/image_56.jpg",
+    "views": [
+      "assets/images/image_56.jpg"
+    ]
+  },
+  {
+    "id": 57,
+    "title": "Breeze across the Marine Promenade",
+    "artist": "Rivani Atelier",
+    "category": "Landscape",
+    "medium": "Oil on canvas · Walnut frame",
+    "dimensions": "120 × 90 cm (47 × 35 in)",
+    "price": "₹1,00,000",
+    "description": "Coastal Mumbai sea breeze and sunset glow over art deco architecture.",
+    "image": "assets/images/image_57.jpg",
+    "views": [
+      "assets/images/image_57.jpg"
+    ]
+  }
+];
