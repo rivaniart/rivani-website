@@ -1,31 +1,22 @@
-# Rivani Fine Art — website export
+# Rivani Fine Art
 
-This folder is a portable static export of the Rivani art-sales website project.
+Static storefront + local Rivani Studio admin backend for managing the artwork catalogue, Muse interior gallery, and acquisition inquiries.
 
 ## Run locally
 
-**Option 1 (Node.js, no dependencies):**
-
 ```bash
-npm start
+ruby server.rb
 ```
-Then open `http://localhost:4173`.
 
-**Option 2 (Python):**
+- **Public Storefront:** `http://localhost:4173/`
+- **Rivani Studio Admin (no login in local dev mode):** `http://localhost:4173/admin`
 
-```bash
-python3 -m http.server 4173
-```
-Then open `http://localhost:4173`.
+## Structure
 
-The site includes the 21-work catalogue, category filters, search, artwork detail panels, in-home MUSE imagery, favourites/shortlist stored in the browser, and a copyable enquiry list.
-
-## Main files
-- `index.html` — page structure
-- `styles.css` — full responsive styling
-- `app.js` — filtering, search, product views and shortlist
-- `data/artworks.js` / `data/artworks.json` — catalogue data
-- `data/muse.js` — MUSE gallery image list
-- `assets/logo.png` — Rivani logo asset
-- `assets/images/` — artwork/interior images
-- `server.js` — tiny dependency-free local server
+- `index.html`, `styles.css`, `app.js` — public storefront
+- `admin/index.html`, `admin/admin.css`, `admin/admin.js` — Rivani Studio CMS (upload/edit artworks, manage Muse Homes, review inquiries)
+- `server.rb` — local zero-dependency Ruby server + JSON/upload API
+- `data/artworks.json` / `data/artworks.js` — catalogue dataset
+- `data/muse.js` — Muse interior series dataset
+- `data/inquiries.json` — locally captured acquisition inquiries
+- `assets/logo.png`, `assets/images/`, `final.mp3` — site media assets

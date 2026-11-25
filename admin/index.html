@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rivani Studio — Catalogue Admin</title>
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <div class="studio-shell">
+    <!-- Left Navigation Sidebar -->
+    <aside class="studio-sidebar">
+      <div class="sidebar-brand">
+        <img src="/assets/logo.png" alt="Rivani Fine Art" />
+        <div>
+          <span class="brand-title">RIVANI STUDIO</span>
+          <span class="brand-sub">Catalogue Admin</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Admin sections">
+        <button type="button" class="nav-item active" data-tab="collection">
+          <span>Collection</span>
+          <span class="nav-badge" id="navCountArtworks">0</span>
+        </button>
+        <button type="button" class="nav-item" data-tab="editor" id="navNewArtwork">
+          <span>+ Add New Artwork</span>
+        </button>
+        <button type="button" class="nav-item" data-tab="muse">
+          <span>Muse Homes</span>
+          <span class="nav-badge" id="navCountMuse">0</span>
+        </button>
+        <button type="button" class="nav-item" data-tab="categories">
+          <span>Categories &amp; Filters</span>
+        </button>
+        <button type="button" class="nav-item" data-tab="inquiries">
+          <span>Acquisition Inquiries</span>
+          <span class="nav-badge" id="navCountInquiries">0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="/" target="_blank" rel="noopener" class="sidebar-link">View Live Website ↗</a>
+        <p class="sidebar-note">Local studio mode · Login protection will be enabled before public deployment.</p>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="studio-main">
+      <header class="studio-topbar">
+        <div class="topbar-status">
+          <span class="lock-pill">LOCAL STUDIO ADMIN · NO LOGIN (DEV MODE)</span>
+        </div>
+        <div class="topbar-actions">
+          <span class="admin-pill">Curatorial Team</span>
+          <button type="button" class="btn btn-green" id="topAddBtn">+ New Artwork Posting</button>
+          <a href="/" target="_blank" rel="noopener" class="btn btn-outline">Open Storefront ↗</a>
+        </div>
+      </header>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+      <!-- TAB 1: COLLECTION LIST -->
+      <section id="tab-collection" class="tab-panel active">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">AVAILABLE &amp; STAGED WORKS</p>
+            <h1>Catalogue Listings</h1>
+          </div>
+          <div class="collection-controls">
+            <input type="search" id="colSearch" class="input" placeholder="Search title, category, medium, ID..." />
+            <select id="colCategoryFilter" class="input">
+              <option value="All">All Categories</option>
+              <option value="Abstract">Abstract</option>
+              <option value="Figurative">Figurative</option>
+              <option value="Landscape">Landscape</option>
+              <option value="Sacred &amp; Traditional">Sacred &amp; Traditional</option>
+              <option value="Still Life">Still Life</option>
+              <option value="Works on Paper">Works on Paper</option>
+            </select>
+            <select id="colStatusFilter" class="input">
+              <option value="all">All Statuses</option>
+              <option value="published">Published</option>
+              <option value="draft">Draft</option>
+              <option value="sold">Sold</option>
+              <option value="hidden">Hidden</option>
+            </select>
+          </div>
+        </div>
+        <p id="collectionSummary" class="summary-line"></p>
+        <div id="collectionGrid" class="collection-grid"></div>
+      </section>
+
+      <!-- TAB 2: ADD / EDIT ARTWORK -->
+      <section id="tab-editor" class="tab-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow" id="editorEyebrow">NEW POSTING</p>
+            <h1 id="editorHeading">Upload &amp; Edit Artwork Posting</h1>
+          </div>
+          <div class="editor-head-actions">
+            <button type="button" class="btn btn-outline" id="editorBackBtn">← Back to Collection</button>
+            <button type="button" class="btn btn-danger" id="editorDeleteBtn" style="display:none;">Delete Posting</button>
+          </div>
+        </div>
+
+        <div class="editor-layout">
+          <form id="artworkForm" class="editor-form-col" novalidate>
+            <!-- Image Uploader -->
+            <div class="card">
+              <div class="card-head-row">
+                <div>
+                  <h3>Artwork Photography &amp; Order</h3>
+                  <p class="hint">Select or drop multiple photos at once (JPG, PNG, WEBP). Drag cards or use the position selector to set display order (#1 is the main card image).</p>
+                </div>
+                <label class="btn btn-dark file-btn">
+                  + Upload Image(s)
+                  <input type="file" id="imageFileInput" accept="image/jpeg,image/png,image/webp" multiple hidden />
+                </label>
+              </div>
+
+              <div id="dropZone" class="drop-zone" role="button" tabindex="0" aria-label="Upload multiple artwork images">
+                Click here or drag &amp; drop <strong>multiple artwork photos</strong> at once
+              </div>
+              <p id="uploadProgress" class="upload-progress" style="display:none;"></p>
+
+              <div id="viewsList" class="views-grid"></div>
+
+              <div class="muse-toggle-box">
+                <label class="switch-row">
+                  <input type="checkbox" id="fMuseEnabled" />
+                  <span><strong>Feature in The Muse Series</strong> (In Collectors' Homes section on storefront)</span>
+                </label>
+                <div id="museImageSelectWrap" class="muse-image-wrap" style="display:none;">
+                  <label>
+                    <span>Muse Interior Photo</span>
+                    <div class="muse-photo-controls">
+                      <select id="fMuseImage" class="input"></select>
+                      <label class="btn btn-outline file-btn">
+                        Upload Room Shot
+                        <input type="file" id="museFileInput" accept="image/jpeg,image/png,image/webp" hidden />
+                      </label>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Core Artwork Details -->
+            <div class="card">
+              <h3>Artwork Details</h3>
+              <div class="form-grid-2">
+                <label>
+                  <span>Artwork Title *</span>
+                  <input type="text" id="fTitle" class="input" required placeholder="e.g. Monsoon Reverie IV" />
+                </label>
+                <div class="field-group">
+                  <label for="fArtist"><span>Artist</span></label>
+                  <select id="fArtist" class="input"></select>
+                  <input type="text" id="fArtistCustom" class="input custom-input" placeholder="Enter custom artist name..." style="display:none;" />
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="field-group">
+                  <label for="fCategory"><span>Category *</span></label>
+                  <select id="fCategory" class="input" required></select>
+                  <input type="text" id="fCategoryCustom" class="input custom-input" placeholder="Enter custom category..." style="display:none;" />
+                </div>
+                <div class="field-group">
+                  <label for="fOrientation"><span>Orientation</span></label>
+                  <select id="fOrientation" class="input"></select>
+                  <input type="text" id="fOrientationCustom" class="input custom-input" placeholder="Enter custom orientation..." style="display:none;" />
+                </div>
+                <label>
+                  <span>Listing Status</span>
+                  <select id="fStatus" class="input">
+                    <option value="published">Published (Live on Site)</option>
+                    <option value="draft">Draft (Hidden from Public)</option>
+                    <option value="sold">Sold (Marked Acquired)</option>
+                    <option value="hidden">Hidden</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="field-group">
+                  <label for="fMedium"><span>Medium *</span></label>
+                  <select id="fMedium" class="input"></select>
+                  <input type="text" id="fMediumCustom" class="input custom-input" placeholder="Enter custom medium..." style="display:none;" />
+                </div>
+                <div class="field-group">
+                  <label for="fSupport"><span>Support / Surface</span></label>
+                  <select id="fSupport" class="input"></select>
+                  <input type="text" id="fSupportCustom" class="input custom-input" placeholder="Enter custom support..." style="display:none;" />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <label>
+                  <span>Price (INR)</span>
+                  <div class="price-input-row">
+                    <input type="text" id="fPrice" class="input" placeholder="₹1,20,000 or Price on Request" />
+                    <button type="button" class="btn btn-outline btn-sm" id="porToggleBtn">Price on Request</button>
+                  </div>
+                </label>
+                <div class="field-group">
+                  <label for="fPanelCount"><span>Panel Count</span></label>
+                  <select id="fPanelCount" class="input">
+                    <option value="1">1 (Single Work)</option>
+                    <option value="2">2 (Diptych)</option>
+                    <option value="3">3 (Triptych)</option>
+                    <option value="4">4 (4-Piece Set)</option>
+                    <option value="5">5 Panels</option>
+                    <option value="6">6 Panels</option>
+                    <option value="__custom__">Other / Custom...</option>
+                  </select>
+                  <input type="number" id="fPanelCountCustom" class="input custom-input" min="1" placeholder="Number of panels" style="display:none;" />
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <label>
+                  <span>Height (cm)</span>
+                  <input type="number" id="fHeightCm" class="input" min="1" placeholder="120" />
+                </label>
+                <label>
+                  <span>Width (cm)</span>
+                  <input type="number" id="fWidthCm" class="input" min="1" placeholder="90" />
+                </label>
+                <label>
+                  <span>Dimensions Display</span>
+                  <input type="text" id="fDimensions" class="input" placeholder="120 × 90 cm (47 × 35 in)" />
+                </label>
+              </div>
+            </div>
+
+            <!-- Framing & Curatorial Copy -->
+            <div class="card">
+              <h3>Framing &amp; Curatorial Copy</h3>
+              <div class="form-grid-3">
+                <div class="field-group">
+                  <label for="fFrameType"><span>Frame Type</span></label>
+                  <select id="fFrameType" class="input"></select>
+                  <input type="text" id="fFrameTypeCustom" class="input custom-input" placeholder="Enter custom frame type..." style="display:none;" />
+                </div>
+                <div class="field-group">
+                  <label for="fFrameMaterial"><span>Frame Material</span></label>
+                  <select id="fFrameMaterial" class="input"></select>
+                  <input type="text" id="fFrameMaterialCustom" class="input custom-input" placeholder="Enter custom material..." style="display:none;" />
+                </div>
+                <div class="field-group">
+                  <label for="fFrameColour"><span>Frame Colour</span></label>
+                  <select id="fFrameColour" class="input"></select>
+                  <input type="text" id="fFrameColourCustom" class="input custom-input" placeholder="Enter custom colour..." style="display:none;" />
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="field-group">
+                  <label for="fFrameFinish"><span>Frame Finish</span></label>
+                  <select id="fFrameFinish" class="input"></select>
+                  <input type="text" id="fFrameFinishCustom" class="input custom-input" placeholder="Enter custom finish..." style="display:none;" />
+                </div>
+                <div class="field-group">
+                  <label for="fMountLiner"><span>Mount / Liner</span></label>
+                  <select id="fMountLiner" class="input"></select>
+                  <input type="text" id="fMountLinerCustom" class="input custom-input" placeholder="Enter custom mount / liner..." style="display:none;" />
+                </div>
+                <label>
+                  <span>Framed Dimensions</span>
+                  <input type="text" id="fFramedDimensions" class="input" placeholder="e.g. 128 × 98 cm" />
+                </label>
+              </div>
+
+              <label>
+                <span>Framed Summary (shown on storefront card)</span>
+                <input type="text" id="fFramedDescription" class="input" placeholder="Auto-built from Colour + Material + Type if blank" />
+              </label>
+
+              <label>
+                <span class="label-with-action">
+                  Curatorial Description
+                  <button type="button" class="link-action" id="autoDescBtn">Auto-Draft from Fields</button>
+                </span>
+                <textarea id="fDescription" class="input" rows="3" placeholder="Editorial description shown in the artwork detail modal..."></textarea>
+              </label>
+
+              <label>
+                <span>Cataloguing / Provenance Notes (optional)</span>
+                <input type="text" id="fNotes" class="input" placeholder="Optional verification or sizing notes" />
+              </label>
+            </div>
+
+            <div class="form-footer-bar">
+              <button type="button" class="btn btn-outline" id="resetEditorBtn">Clear / Reset</button>
+              <div class="form-footer-right">
+                <button type="button" class="btn btn-outline" id="saveDraftBtn">Save as Draft</button>
+                <button type="submit" class="btn btn-green" id="savePublishBtn">Save &amp; Publish to Website</button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Live Preview Column -->
+          <aside class="editor-preview-col">
+            <div class="card">
+              <p class="eyebrow">STOREFRONT CARD PREVIEW</p>
+              <h3>Live Card Preview</h3>
+              <article class="preview-art-card">
+                <div class="preview-image-wrap">
+                  <img id="prevImg" src="" alt="Preview" style="display:none;" />
+                  <div id="prevPlaceholder" class="preview-placeholder">Upload a photo to preview</div>
+                  <span class="preview-heart">♡</span>
+                </div>
+                <div class="preview-meta">
+                  <div class="preview-cat-row">
+                    <span id="prevCat">ABSTRACT</span>
+                    <span id="prevDims">120 × 90 cm</span>
+                  </div>
+                  <h4 id="prevTitle">Untitled Artwork</h4>
+                  <div class="preview-specs" id="prevSpecs">Oil on canvas · Custom Archival Frame</div>
+                  <div class="preview-price-row">
+                    <strong id="prevPrice">₹1,20,000</strong>
+                    <span>VIEW DETAILS →</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="card">
+              <p class="eyebrow">QUICK JUMP</p>
+              <h3>Recent Postings</h3>
+              <div id="recentList" class="recent-list"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- TAB 3: MUSE HOMES -->
+      <section id="tab-muse" class="tab-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">IN COLLECTORS' HOMES</p>
+            <h1>The Muse Series</h1>
+          </div>
+          <div class="editor-head-actions">
+            <button type="button" class="btn btn-green" id="saveMuseOrderBtn">Save Muse Gallery</button>
+          </div>
+        </div>
+
+        <div class="card muse-add-card">
+          <h3>Add Room Perspective to Muse Series</h3>
+          <div class="muse-add-row">
+            <label>
+              <span>Linked Artwork *</span>
+              <select id="museLinkArtwork" class="input"></select>
+            </label>
+            <label>
+              <span>Interior Photo *</span>
+              <div class="muse-photo-controls">
+                <input type="text" id="museNewImage" class="input" placeholder="Upload or choose image path..." />
+                <label class="btn btn-dark file-btn">
+                  Upload Photo
+                  <input type="file" id="museStandaloneFile" accept="image/jpeg,image/png,image/webp" hidden />
+                </label>
+              </div>
+            </label>
+            <button type="button" class="btn btn-green" id="addMuseEntryBtn">+ Add to Muse</button>
+          </div>
+        </div>
+
+        <div id="museAdminGrid" class="muse-admin-grid"></div>
+      </section>
+
+      <!-- TAB 4: CATEGORIES & FILTERS -->
+      <section id="tab-categories" class="tab-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">STOREFRONT TAXONOMY</p>
+            <h1>Categories &amp; Filter Mapping</h1>
+          </div>
+        </div>
+        <p class="summary-line">Click any filter bucket or category tag to view its matching artworks in Collection.</p>
+        <div id="categoriesView" class="categories-layout"></div>
+      </section>
+
+      <!-- TAB 5: ACQUISITION INQUIRIES -->
+      <section id="tab-inquiries" class="tab-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">COLLECTOR REQUESTS</p>
+            <h1>Acquisition Inquiries</h1>
+          </div>
+        </div>
+        <div id="inquiriesList" class="inquiries-list"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>
