@@ -28,18 +28,20 @@ window.RIVANI_ARTWORKS = [
     "mount_liner": "None",
     "framed_description": "Black Wood Slim shadow-gap frame",
     "framed_dimensions": "128 × 98 cm",
-    "price": "₹1,20,000",
+    "price": "Price on Request",
     "price_inr": 120000,
     "description": "Warm Geometry I is an original abstract work executed in acrylic and texture on canvas. Presented in a black wood slim shadow-gap frame. Title and medium proposed from the visible geometric composition; size estimated from proportions.",
     "verification_status": "verified_tier",
     "duplicate_group": null,
+    "status": "published",
     "image": "assets/images/image_1.jpg",
     "primary_image": "assets/images/image_1.jpg",
     "views": [
       "assets/images/image_1.jpg"
     ],
     "notes": "Title and medium proposed from the visible geometric composition; size estimated from proportions.",
-    "slug": "warm-geometry-i"
+    "slug": "warm-geometry-i",
+    "updated_at": "2026-11-25T12:51:20Z"
   },
   {
     "id": 2,
@@ -69,7 +71,7 @@ window.RIVANI_ARTWORKS = [
     "mount_liner": "None",
     "framed_description": "Medium brown Teak Simple gallery frame",
     "framed_dimensions": "140 × 110 cm",
-    "price": "₹1,20,000",
+    "price": "Price on Request",
     "price_inr": 120000,
     "description": "Seated Figure in Ultramarine & Rose is an original figurative work executed in oil and pigment on fine belgian linen. Presented in a medium brown teak simple gallery frame. Exact title, medium/support, artwork size, frame material and price taken from the supplied close-up card.",
     "verification_status": "verified",
@@ -82,7 +84,7 @@ window.RIVANI_ARTWORKS = [
     ],
     "notes": "Exact title, medium/support, artwork size, frame material and price taken from the supplied close-up card.",
     "slug": "seated-figure-in-ultramarine-rose",
-    "updated_at": "2026-11-25T11:40:40Z"
+    "updated_at": "2026-11-25T12:51:09Z"
   },
   {
     "id": 3,
@@ -112,18 +114,20 @@ window.RIVANI_ARTWORKS = [
     "mount_liner": "None",
     "framed_description": "Dark brown / charcoal Wood Slim float frame",
     "framed_dimensions": "98 × 128 cm",
-    "price": "₹1,20,000",
+    "price": "Price on Request",
     "price_inr": 120000,
     "description": "Valley After Rain is an original landscape work executed in oil on canvas. Presented in a dark brown / charcoal wood slim float frame. Landscape title proposed; size estimated from the painting's horizontal proportions.",
     "verification_status": "verified_tier",
     "duplicate_group": null,
+    "status": "published",
     "image": "assets/images/image_3.jpg",
     "primary_image": "assets/images/image_3.jpg",
     "views": [
       "assets/images/image_3.jpg"
     ],
     "notes": "Landscape title proposed; size estimated from the painting's horizontal proportions.",
-    "slug": "valley-after-rain"
+    "slug": "valley-after-rain",
+    "updated_at": "2026-11-25T12:50:53Z"
   },
   {
     "id": 4,
@@ -153,18 +157,20 @@ window.RIVANI_ARTWORKS = [
     "mount_liner": "None",
     "framed_description": "Black Wood Slim float frame",
     "framed_dimensions": "148 × 98 cm",
-    "price": "₹1,20,000",
+    "price": "Price on Request",
     "price_inr": 120000,
     "description": "Red, Blue & Gold Construct is an original abstract work executed in mixed media on canvas. Presented in a black wood slim float frame.",
     "verification_status": "verified_tier",
     "duplicate_group": null,
+    "status": "published",
     "image": "assets/images/image_4.jpg",
     "primary_image": "assets/images/image_4.jpg",
     "views": [
       "assets/images/image_4.jpg"
     ],
     "notes": "",
-    "slug": "red-blue-gold-construct"
+    "slug": "red-blue-gold-construct",
+    "updated_at": "2026-11-25T12:51:30Z"
   },
   {
     "id": 5,
