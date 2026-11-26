@@ -183,6 +183,34 @@
     }, 3200);
   }
 
+  function sanitizeArtworkForSupabase(body) {
+    var copy = Object.assign({}, body);
+    delete copy.muse; // muse is kept in muse dataset / table, not a column on artworks
+    delete copy.id;
+
+    // Convert dimensions / numbers to valid types or null
+    if (copy.height_cm !== undefined && copy.height_cm !== null) {
+      var h = parseFloat(copy.height_cm);
+      copy.height_cm = isNaN(h) ? null : h;
+    }
+    if (copy.width_cm !== undefined && copy.width_cm !== null) {
+      var w = parseFloat(copy.width_cm);
+      copy.width_cm = isNaN(w) ? null : w;
+    }
+    if (copy.panel_count !== undefined && copy.panel_count !== null) {
+      var pc = parseInt(copy.panel_count, 10);
+      copy.panel_count = isNaN(pc) ? 1 : pc;
+    }
+    if (copy.price) {
+      var digits = String(copy.price).replace(/[^\d]/g, '');
+      copy.price_inr = digits ? parseInt(digits, 10) : null;
+    }
+    if (!copy.slug && copy.title) {
+      copy.slug = copy.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+    return copy;
+  }
+
   function api(url, opts) {
     opts = opts || {};
     var method = (opts.method || 'GET').toUpperCase();
@@ -199,8 +227,8 @@
         });
       }
       if (url === '/api/artworks' && method === 'POST') {
-        var body = JSON.parse(opts.body || '{}');
-        delete body.id; // allow DB serial
+        var rawBody = JSON.parse(opts.body || '{}');
+        var body = sanitizeArtworkForSupabase(rawBody);
         body.updated_at = new Date().toISOString();
         return sb.from('artworks').insert([body]).select().then(function (res) {
           if (res.error) throw res.error;
@@ -211,7 +239,8 @@
       }
       if (url.indexOf('/api/artworks/') === 0 && (method === 'PUT' || method === 'PATCH')) {
         var id = url.split('/').pop();
-        var body = JSON.parse(opts.body || '{}');
+        var rawBody = JSON.parse(opts.body || '{}');
+        var body = sanitizeArtworkForSupabase(rawBody);
         body.updated_at = new Date().toISOString();
         return sb.from('artworks').update(body).eq('id', id).select().then(function (res) {
           if (res.error) throw res.error;
