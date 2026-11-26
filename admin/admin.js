@@ -797,11 +797,13 @@
 
   function formatDisplayPrice(raw) {
     var val = (raw || '').trim();
-    if (!val) return 'Price on Request';
-    if (/^\d[\d,]*$/.test(val)) {
-      var num = parseInt(val.replace(/,/g, ''), 10);
+    if (!val || /price on request/i.test(val)) return 'Price on Request';
+    var digitsOnly = val.replace(/[^\d]/g, '');
+    if (digitsOnly) {
+      var num = parseInt(digitsOnly, 10);
       if (num > 0) return '₹' + num.toLocaleString('en-IN');
     }
+    if (val.charAt(0) !== '₹') return '₹' + val;
     return val;
   }
 
@@ -848,6 +850,12 @@
     }
 
     var status = overrideStatus || $('#fStatus').value;
+    var rawPrice = ($('#fPrice').value || '').trim();
+    var finalPrice = 'Price on Request';
+    if (rawPrice && !/price on request/i.test(rawPrice)) {
+      finalPrice = formatDisplayPrice(rawPrice);
+    }
+
     var payload = {
       title: title,
       artist: getSelectFieldValue(getFieldConfig('fArtist')) || 'Rivani Atelier',
@@ -856,7 +864,7 @@
       status: status,
       medium: getSelectFieldValue(getFieldConfig('fMedium')) || 'Oil on canvas',
       support: getSelectFieldValue(getFieldConfig('fSupport')),
-      price: $('#fPrice').value.trim() || 'Price on Request',
+      price: finalPrice,
       height_cm: $('#fHeightCm').value.trim(),
       width_cm: $('#fWidthCm').value.trim(),
       panel_count: getPanelCountValue(),

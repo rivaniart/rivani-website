@@ -234,6 +234,18 @@
     });
   }
 
+  function formatPrice(val) {
+    if (!val || /price on request/i.test(String(val).trim())) return 'Price on Request';
+    var s = String(val).trim();
+    var digitsOnly = s.replace(/[^\d]/g, '');
+    if (digitsOnly) {
+      var n = parseInt(digitsOnly, 10);
+      if (n > 0) return '₹' + n.toLocaleString('en-IN');
+    }
+    if (s.charAt(0) !== '₹') return '₹' + s;
+    return s;
+  }
+
   function visible() {
     var q = query.toLowerCase().trim();
     return artworks.filter(function (a) {
@@ -275,6 +287,7 @@
         var isSaved = shortlist.indexOf(a.id) !== -1;
         var frameSnippet = a.framed_description || a.frame_type || 'Custom Archival Frame';
         var title = escapeHtml(a.title);
+        var displayPrice = formatPrice(a.price);
         return [
           '<article class="art-card">',
           '  <div class="image-wrap" data-open="' + a.id + '">',
@@ -291,7 +304,7 @@
           '    <h3>' + title + '</h3>',
           '    <div class="specs">' + escapeHtml(a.medium) + ' · ' + escapeHtml(frameSnippet) + '</div>',
           '    <div class="price-row">',
-          '      <div class="price">' + escapeHtml(a.price) + '</div>',
+          '      <div class="price">' + escapeHtml(displayPrice) + '</div>',
           '      <button class="view-link" data-open="' + a.id + '">VIEW DETAILS →</button>',
           '    </div>',
           '  </div>',
@@ -336,7 +349,8 @@
     }
 
     var isSaved = shortlist.indexOf(a.id) !== -1;
-    var priceDisplay = a.price === 'Price on Request' ? 'Price on Request' : a.price + ' (Bespoke Frame Included)';
+    var formatted = formatPrice(a.price);
+    var priceDisplay = formatted === 'Price on Request' ? 'Price on Request' : formatted + ' (Bespoke Frame Included)';
     var panelRow = (a.panel_count && a.panel_count > 1) ? '<div><span>PANEL COUNT</span><b>' + a.panel_count + ' Panels</b></div>' : '';
     var framedDimRow = a.framed_dimensions ? '<div><span>FRAMED DIMENSIONS</span><b>' + escapeHtml(a.framed_dimensions) + '</b></div>' : '';
 
