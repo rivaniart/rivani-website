@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rivani Studio — Catalogue Admin</title>
   <link rel="stylesheet" href="/admin/admin.css" />
+  <link rel="stylesheet" href="/admin/admin-auth.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/data/supabase-config.js"></script>
+  <script src="/admin/supabase-provider.js"></script>
 </head>
 <body>
   <div class="studio-shell">
@@ -49,14 +53,47 @@
     <div class="studio-main">
       <header class="studio-topbar">
         <div class="topbar-status">
-          <span class="lock-pill">LOCAL STUDIO ADMIN · NO LOGIN (DEV MODE)</span>
+          <span id="backendStatusPill" class="backend-indicator cloud">
+            <span class="backend-dot"></span>
+            <span id="backendStatusText">SUPABASE CLOUD READY</span>
+          </span>
         </div>
         <div class="topbar-actions">
-          <span class="admin-pill">Curatorial Team</span>
+          <span id="adminUserPill" class="user-pill" style="display: none;">
+            <span id="adminUserEmail">admin@rivaniart.com</span>
+            <button type="button" id="adminLogoutBtn" class="user-logout-btn">Log Out</button>
+          </span>
           <button type="button" class="btn btn-green" id="topAddBtn">+ New Artwork Posting</button>
           <a href="/" target="_blank" rel="noopener" class="btn btn-outline">Open Storefront ↗</a>
         </div>
       </header>
+
+      <!-- Supabase Auth Login Modal -->
+      <div id="authModal" class="auth-overlay" style="display: none;">
+        <div class="auth-card">
+          <div class="auth-brand">
+            <img src="/assets/logo.png" alt="Rivani Fine Art" />
+            <span class="brand-title">RIVANI STUDIO</span>
+          </div>
+          <h2 class="auth-title">Curatorial Access</h2>
+          <p class="auth-sub">Sign in with your Rivani admin credentials to modify the global catalogue.</p>
+          <form id="authForm" class="auth-form">
+            <label>
+              <span>Email Address</span>
+              <input type="email" id="authEmail" class="input" placeholder="admin@rivaniart.com" required autocomplete="username" />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" id="authPassword" class="input" placeholder="••••••••" required autocomplete="current-password" />
+            </label>
+            <div id="authError" class="auth-error"></div>
+            <div class="auth-btn-row">
+              <button type="submit" id="authSubmitBtn" class="btn btn-green" style="width: 100%; justify-content: center; padding: 12px;">Sign In to Studio</button>
+              <button type="button" id="authBypassLocalBtn" class="btn btn-outline" style="width: 100%; justify-content: center; display: none;">Continue in Local Dev Mode</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
       <div id="toast" class="toast" role="status" aria-live="polite"></div>
 

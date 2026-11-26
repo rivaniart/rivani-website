@@ -1609,18 +1609,20 @@
     "mount_liner": "None",
     "framed_description": "Gold Carved wood Ornate portrait frame",
     "framed_dimensions": "125 × 95 cm",
-    "price": "₹1,00,000",
+    "price": "Price on Request",
     "price_inr": 100000,
     "description": "Seated Woman in Burgundy is an original figurative work executed in oil on canvas. Presented in a gold carved wood ornate portrait frame.",
     "verification_status": "verified_tier",
     "duplicate_group": null,
+    "status": "published",
     "image": "assets/images/image_45.jpg",
     "primary_image": "assets/images/image_45.jpg",
     "views": [
       "assets/images/image_45.jpg"
     ],
     "notes": "",
-    "slug": "seated-woman-in-burgundy"
+    "slug": "seated-woman-in-burgundy",
+    "updated_at": "2026-11-25T13:00:33Z"
   },
   {
     "id": 47,

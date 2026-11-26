@@ -72,6 +72,30 @@
   window.RIVANI_ARTWORKS = artworks;
   window.RIVANI_MUSE = muse;
 
+  // Live Supabase Sync: Fetch live published artworks from Supabase if connected
+  if (window.sbClient && typeof window.sbClient.from === 'function') {
+    window.sbClient
+      .from('artworks')
+      .select('*')
+      .order('id', { ascending: true })
+      .then(function (res) {
+        if (res.data && res.data.length > 0) {
+          var liveArts = res.data.filter(function (a) {
+            return a && a.status !== 'draft' && a.status !== 'hidden';
+          });
+          if (liveArts.length > 0) {
+            artworks = liveArts;
+            window.RIVANI_ARTWORKS = liveArts;
+            renderCollection();
+            renderFeaturedHero();
+          }
+        }
+      })
+      .catch(function (e) {
+        console.warn('Supabase storefront sync fallback to static dataset:', e);
+      });
+  }
+
   var filter = 'All';
   var query = '';
   var shortlist = storage.get('rivaniShortlist', []);

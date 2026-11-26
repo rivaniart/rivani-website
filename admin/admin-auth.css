@@ -1,0 +1,137 @@
+/* Supabase Auth Modal & Backend Switcher Styles */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 17, 16, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.auth-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  max-width: 440px;
+  width: 100%;
+  padding: 36px 32px 30px;
+  position: relative;
+  text-align: left;
+}
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.auth-brand img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.auth-brand .brand-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ink);
+}
+.auth-title {
+  font-size: 22px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.auth-sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.auth-form .input {
+  width: 100%;
+  box-sizing: border-box;
+}
+.auth-btn-row {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.auth-error {
+  color: #c93b2b;
+  font-size: 12px;
+  margin-top: 12px;
+  display: none;
+  background: #fdf2f2;
+  border: 1px solid #f8d7da;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.backend-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eef7f0;
+  color: #1f6b3b;
+  border: 1px solid #c7e6cf;
+}
+.backend-indicator.cloud {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+.backend-indicator.local {
+  background: #fefce8;
+  color: #854d0e;
+  border-color: #fef08a;
+}
+.backend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--ink);
+}
+.user-logout-btn {
+  background: none;
+  border: 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0;
+  font-size: 11px;
+  text-decoration: underline;
+}
+.user-logout-btn:hover {
+  color: #c93b2b;
+}

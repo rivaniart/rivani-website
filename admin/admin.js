@@ -184,6 +184,80 @@
   }
 
   function api(url, opts) {
+    opts = opts || {};
+    var method = (opts.method || 'GET').toUpperCase();
+
+    // Check if Supabase provider is active
+    if (window.RivaniBackend && window.RivaniBackend.isSupabase()) {
+      var sb = window.RivaniBackend.getClient();
+
+      // Artworks endpoints
+      if (url === '/api/artworks' && method === 'GET') {
+        return sb.from('artworks').select('*').order('id', { ascending: true }).then(function (res) {
+          if (res.error) throw res.error;
+          return { artworks: res.data || [] };
+        });
+      }
+      if (url === '/api/artworks' && method === 'POST') {
+        var body = JSON.parse(opts.body || '{}');
+        delete body.id; // allow DB serial
+        body.updated_at = new Date().toISOString();
+        return sb.from('artworks').insert([body]).select().then(function (res) {
+          if (res.error) throw res.error;
+          return sb.from('artworks').select('*').order('id', { ascending: true }).then(function (all) {
+            return { artwork: res.data[0], artworks: all.data || [] };
+          });
+        });
+      }
+      if (url.indexOf('/api/artworks/') === 0 && (method === 'PUT' || method === 'PATCH')) {
+        var id = url.split('/').pop();
+        var body = JSON.parse(opts.body || '{}');
+        body.updated_at = new Date().toISOString();
+        return sb.from('artworks').update(body).eq('id', id).select().then(function (res) {
+          if (res.error) throw res.error;
+          return sb.from('artworks').select('*').order('id', { ascending: true }).then(function (all) {
+            return { artwork: res.data ? res.data[0] : body, artworks: all.data || [] };
+          });
+        });
+      }
+      if (url.indexOf('/api/artworks/') === 0 && method === 'DELETE') {
+        var id = url.split('/').pop();
+        return sb.from('artworks').delete().eq('id', id).then(function (res) {
+          if (res.error) throw res.error;
+          return sb.from('artworks').select('*').order('id', { ascending: true }).then(function (all) {
+            return { artworks: all.data || [] };
+          });
+        });
+      }
+
+      // Meta dropdown endpoint
+      if (url === '/api/meta' && method === 'GET') {
+        return sb.from('artworks').select('*').then(function (res) {
+          var arts = res.data || [];
+          var meta = { artists: [], categories: [], mediums: [], frameTypes: [], frameColours: [], frameFinishes: [], orientations: [] };
+          arts.forEach(function (a) {
+            if (a.artist) meta.artists.push(a.artist);
+            if (a.category) meta.categories.push(a.category);
+            if (a.medium) meta.mediums.push(a.medium);
+            if (a.frame_type) meta.frameTypes.push(a.frame_type);
+            if (a.frame_colour) meta.frameColours.push(a.frame_colour);
+            if (a.frame_finish) meta.frameFinishes.push(a.frame_finish);
+            if (a.orientation) meta.orientations.push(a.orientation);
+          });
+          return meta;
+        });
+      }
+
+      // Fallback for muse & inquiries in Supabase mode
+      if (url === '/api/muse' && method === 'GET') {
+        return Promise.resolve({ muse: window.RIVANI_MUSE || [] });
+      }
+      if (url === '/api/inquiries' && method === 'GET') {
+        return Promise.resolve({ inquiries: [] });
+      }
+    }
+
+    // Default: local server WEBrick API
     return fetch(url, opts).then(function (res) {
       return res.json().then(function (data) {
         if (!res.ok) {
@@ -611,6 +685,9 @@
   }
 
   function uploadFile(file) {
+    if (window.RivaniBackend && window.RivaniBackend.isSupabase()) {
+      return window.RivaniBackend.uploadImage(file);
+    }
     return new Promise(function (resolve, reject) {
       var reader = new FileReader();
       reader.onload = function () {
@@ -1193,7 +1270,88 @@
 
     $('#saveMuseOrderBtn').onclick = saveMuseOrder;
 
-    loadAll();
+    // Check Supabase authentication & setup status
+    setupAuthAndBackend();
+  }
+
+  function setupAuthAndBackend() {
+    var isCloud = window.RivaniBackend && window.RivaniBackend.isSupabase();
+    var statusPill = $('#backendStatusPill');
+    var statusText = $('#backendStatusText');
+    var userPill = $('#adminUserPill');
+    var userEmail = $('#adminUserEmail');
+    var authModal = $('#authModal');
+    var authForm = $('#authForm');
+    var authError = $('#authError');
+    var authBypassBtn = $('#authBypassLocalBtn');
+    var logoutBtn = $('#adminLogoutBtn');
+
+    if (!isCloud) {
+      if (statusPill) statusPill.className = 'backend-indicator local';
+      if (statusText) statusText.textContent = 'LOCAL DEV MODE (NO LOGIN)';
+      loadAll();
+      return;
+    }
+
+    if (statusPill) statusPill.className = 'backend-indicator cloud';
+    if (statusText) statusText.textContent = 'SUPABASE CLOUD';
+
+    // Check if user is already logged in
+    window.RivaniBackend.getSession().then(function (session) {
+      if (session && session.user) {
+        if (authModal) authModal.style.display = 'none';
+        if (userPill) userPill.style.display = 'inline-flex';
+        if (userEmail) userEmail.textContent = session.user.email;
+        loadAll();
+      } else {
+        // Show login modal
+        if (authModal) authModal.style.display = 'flex';
+        if (authBypassBtn) {
+          authBypassBtn.style.display = 'block';
+          authBypassBtn.onclick = function () {
+            window.localStorage.removeItem('rivani_force_supabase');
+            location.href = location.pathname; // reload in local mode
+          };
+        }
+      }
+    });
+
+    if (authForm) {
+      authForm.onsubmit = function (e) {
+        e.preventDefault();
+        var email = $('#authEmail').value.trim();
+        var pass = $('#authPassword').value;
+        var btn = $('#authSubmitBtn');
+        btn.disabled = true;
+        btn.textContent = 'Signing in...';
+        if (authError) authError.style.display = 'none';
+
+        window.RivaniBackend.signIn(email, pass).then(function (res) {
+          if (res.error) throw res.error;
+          if (authModal) authModal.style.display = 'none';
+          if (userPill) userPill.style.display = 'inline-flex';
+          if (userEmail) userEmail.textContent = email;
+          showToast('Welcome back, ' + email);
+          loadAll();
+        }).catch(function (err) {
+          if (authError) {
+            authError.textContent = err.message || 'Login failed. Please check credentials.';
+            authError.style.display = 'block';
+          }
+        }).finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Sign In to Studio';
+        });
+      };
+    }
+
+    if (logoutBtn) {
+      logoutBtn.onclick = function () {
+        window.RivaniBackend.signOut().then(function () {
+          location.reload();
+        });
+      };
+    }
   }
 
   if (document.readyState === 'loading') {
