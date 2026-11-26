@@ -73,7 +73,8 @@
   window.RIVANI_MUSE = muse;
 
   // Live Supabase Sync: Fetch live published artworks from Supabase if connected
-  if (window.sbClient && typeof window.sbClient.from === 'function') {
+  function syncFromSupabase() {
+    if (!window.sbClient || typeof window.sbClient.from !== 'function') return;
     window.sbClient
       .from('artworks')
       .select('*')
@@ -86,8 +87,9 @@
           if (liveArts.length > 0) {
             artworks = liveArts;
             window.RIVANI_ARTWORKS = liveArts;
-            renderCollection();
-            renderFeaturedHero();
+            renderArt();
+            renderCount();
+            renderMuse();
           }
         }
       })
@@ -95,6 +97,7 @@
         console.warn('Supabase storefront sync fallback to static dataset:', e);
       });
   }
+  syncFromSupabase();
 
   var filter = 'All';
   var query = '';
